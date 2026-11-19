@@ -1,0 +1,53 @@
+/* ---------------------------------------------------------------------------
+   Collapsible blocks  ->  created with the {{% details %}} shortcode
+   Styled to match the Terminal theme (uses the theme's own CSS variables).
+--------------------------------------------------------------------------- */
+
+.collapsible {
+  position: relative;
+  margin: 20px 0;
+  border: 1px solid var(--accent);
+}
+
+/* The clickable "show" label */
+.collapsible > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  color: var(--accent);
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Hide the browser's native disclosure triangle, use a terminal-ish marker */
+.collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.collapsible > summary::before {
+  content: "[+]";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.collapsible[open] > summary::before {
+  content: "[-]";
+}
+
+.collapsible > summary:hover {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+/* The hidden content */
+.collapsible__body {
+  padding: 10px;
+}
+
+.collapsible__body > *:last-child {
+  margin-bottom: 0;
+}
+
+.collapsible__body .highlight {
+  margin: 0;
+}
